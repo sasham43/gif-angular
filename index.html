@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="gifApp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GIFs in Angular</title>
+
+    <!-- Libraries -->
+    <script src="angular.min.js"></script>
+
+    <!-- My development -->
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body ng-controller="GifController">
+    <div class="container">
+      <header>
+        <img class="icon" src="search.png" ng-click="searchMode()" />
+        <img class="icon" src="shuffle.png" ng-click="randomMode()" />
+        <div ng-show="showRandom">
+          <button ng-click="getRandomGif()" ng-blur="blurButton">Get Random GIF</button>
+        </div>
+        <div ng-show="showSearch">
+          <input type="text" ng-model="searchText" />
+          <button ng-click="searchGifs()">Search GIFs</button>
+        </div>
+      </header>
+
+      <div class="randomGifContainer" ng-show="showRandom">
+        <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading" />
+        <img ng-src="{{gif}}" ng-show="showGif"/>
+      </div>
+      <div class="searchGifContainer" ng-show="showSearch">
+        <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading" />
+        <img ng-src="{{gif.images.fixed_width.url}}" ng-repeat="gif in gifList" />
+      </div>
+    </div>
+
+  </body>
+</html>
