@@ -14,15 +14,18 @@
   <body ng-controller="GifController">
     <div class="container">
       <header>
-        <img class="icon" src="search.png" ng-click="searchMode()" />
-        <img class="icon" src="shuffle.png" ng-click="randomMode()" />
-        <div ng-show="showRandom">
-          <button ng-click="getRandomGif()" ng-blur="blurButton">Get Random GIF</button>
+        <img class="icon" ng-src="{{searchIcon}}" ng-click="searchMode()" ng-style="searchStyle"/>
+        <img class="icon" ng-src="{{randomIcon}}" ng-click="randomMode()" ng-style="randomStyle"/>
+        <div class="buttonContainer">
+          <div class="randomButton" ng-show="showRandom">
+            <button ng-click="getRandomGif()">Get Random GIF</button>
+          </div>
+          <form class="searchButton" ng-submit="searchGifs()" ng-show="showSearch">
+            <input type="text" ng-model="searchText" placeholder="search gifs..."/>
+            <!-- <button ng-click="searchGifs()">Search GIFs</button> -->
+          </form>
         </div>
-        <div ng-show="showSearch">
-          <input type="text" ng-model="searchText" />
-          <button ng-click="searchGifs()">Search GIFs</button>
-        </div>
+
       </header>
 
       <div class="randomGifContainer" ng-show="showRandom">
@@ -30,7 +33,10 @@
         <img ng-src="{{gif}}" ng-show="showGif"/>
       </div>
       <div class="searchGifContainer" ng-show="showSearch">
-        <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading" />
+        <div class="imageLoading">
+          <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading" />
+        </div>
+
         <img ng-src="{{gif.images.fixed_width.url}}" ng-repeat="gif in gifList" />
       </div>
     </div>

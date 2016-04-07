@@ -2,6 +2,12 @@ var app = angular.module("gifApp", []);
 
 app.controller('GifController', function($scope, $http){
 
+  $scope.searchIcon = 'search.png';
+  $scope.randomIcon = 'shuffle.png';
+
+
+
+
   $scope.imageLoading = false;
   $scope.showGif = false;
 
@@ -14,7 +20,6 @@ app.controller('GifController', function($scope, $http){
       $scope.gif = response.data.data.image_url;
       $scope.imageLoading = false;
       $scope.showGif = true;
-      $scope.blurButton = true;
     });
   }
 
@@ -32,15 +37,27 @@ app.controller('GifController', function($scope, $http){
   $scope.searchMode = function(){
     $scope.showRandom = false;
     $scope.showSearch = true;
-    console.log($scope.showRandom);
-    console.log($scope.showSearch);
+    $scope.changeIcons();
+    // $scope.searchStyle = {'border': 'solid 4px #646FB8', 'width': '34px', 'height': '34px'};
+    // $scope.randomStyle = {'border': 'none'};
   }
 
   $scope.randomMode = function(){
     $scope.showSearch = false;
     $scope.showRandom = true;
-    console.log($scope.showRandom);
-    console.log($scope.showSearch);
+    $scope.changeIcons();
+    // $scope.searchStyle = {'border': 'none'};
+    // $scope.randomStyle = {'border': 'solid 4px #646FB8'};
+  }
+
+  $scope.changeIcons = function(){
+    if($scope.showSearch){
+      $scope.searchIcon = 'search_white.png';
+      $scope.randomIcon = 'shuffle.png';
+    } else if ($scope.showRandom){
+      $scope.searchIcon = 'search.png';
+      $scope.randomIcon = 'shuffle_white.png';
+    }
   }
 
 });
