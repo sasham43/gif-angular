@@ -37,10 +37,7 @@ app.controller('GifController', function($scope, $http, $interval){
       console.log(response);
       $scope.gif = response.data.data.image_url;
 
-      // not working
       $scope.waitForLoad();
-
-
     });
   }
 
@@ -49,6 +46,7 @@ app.controller('GifController', function($scope, $http, $interval){
       if(gifLoaded){
         $scope.imageLoading = false;
         $scope.showGif = true;
+        gifLoaded = false;
         return;
       }
     }, 100);
