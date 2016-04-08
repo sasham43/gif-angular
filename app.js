@@ -1,4 +1,4 @@
-var app = angular.module("gifApp", []);
+var app = angular.module("gifApp", ['ngAnimate']);
 
 var gifLoaded = false;
 

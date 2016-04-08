@@ -6,6 +6,7 @@
 
     <!-- Libraries -->
     <script src="angular.min.js"></script>
+    <script src="angular-animate.min.js"></script>
 
     <!-- My development -->
     <script src="app.js"></script>
@@ -29,8 +30,11 @@
       </header>
 
       <div class="randomGifContainer" ng-show="showRandom">
-        <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading"/>
-        <img ng-src="{{gif}}" ng-show="showGif" imageonload/>
+        <div class="animationContainer">
+          <img class="gif" src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading"/>
+          <img class="gif" ng-src="{{gif}}" ng-show="showGif" imageonload/>
+        </div>
+
       </div>
       <div class="searchGifContainer" ng-show="showSearch">
         <div class="imageLoading">

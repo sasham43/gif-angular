@@ -84,3 +84,20 @@ button:focus{
   box-sizing: border-box;
   border-radius: 12px;
 }
+
+.gif{
+  transition: all linear 0.5s;
+  -webkit-transition:all linear 0.3s;
+  position: absolute;
+  top: 0em;
+  left: -13em;
+}
+
+.gif.ng-hide{
+  opacity:0;
+}
+
+.animationContainer{
+  position:relative;
+  height: 400px;
+}
