@@ -29,15 +29,15 @@
       </header>
 
       <div class="randomGifContainer" ng-show="showRandom">
-        <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading" />
-        <img ng-src="{{gif}}" ng-show="showGif"/>
+        <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading"/>
+        <img ng-src="{{gif}}" ng-show="showGif" imageonload/>
       </div>
       <div class="searchGifContainer" ng-show="showSearch">
         <div class="imageLoading">
           <img src="https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif" ng-show="imageLoading" />
         </div>
 
-        <img ng-src="{{gif.images.fixed_width.url}}" ng-repeat="gif in gifList" />
+        <img ng-src="{{gif.images.fixed_width.url}}" ng-repeat="gif in gifList" ng-show="gifIndex == $index"/>
       </div>
     </div>
 

@@ -82,4 +82,5 @@ button:focus{
   width: 30px;
   margin: 4px;
   box-sizing: border-box;
+  border-radius: 12px;
 }
